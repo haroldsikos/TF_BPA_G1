@@ -2,9 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import xgboost as xgb
 
 # === 1. Cargar modelo y transformadores ===
-modelo = joblib.load("xgb_model.pkl")
+# == modelo = joblib.load("xgb_model.pkl")
+modelo = xgb.XGBClassifier()
+modelo.load_model("xgb_model.json")
 encoder_mms = joblib.load("encoderMMS.pkl")
 encoder_rs = joblib.load("encoderRS.pkl")
 label_encoders = joblib.load("label_encoders.pkl")
